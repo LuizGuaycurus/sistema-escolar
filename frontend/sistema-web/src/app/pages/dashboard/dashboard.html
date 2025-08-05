@@ -1,1 +1,39 @@
-<p>dashboard works!</p>
+<!-- frontend/sistema-web/src/app/pages/dashboard/dashboard.html -->
+
+<div class="dashboard-container">
+  <h1>Painel de Alunos</h1>
+
+  <!-- Se estiver carregando, mostra uma mensagem -->
+  <div *ngIf="isLoading" class="loading">
+    Carregando alunos...
+  </div>
+
+  <!-- Se não estiver carregando e não houver alunos, mostra outra mensagem -->
+  <div *ngIf="!isLoading && alunos.length === 0" class="no-data">
+    Nenhum aluno cadastrado no momento.
+  </div>
+
+  <!-- Se não estiver carregando e houver alunos, mostra a tabela -->
+  <table *ngIf="!isLoading && alunos.length > 0" class="alunos-table">
+    <thead>
+      <tr>
+        <th>Nome Completo</th>
+        <th>Email</th>
+        <th>Data de Nascimento</th>
+        <th>Ações</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- O *ngFor repete esta linha para cada aluno na lista -->
+      <tr *ngFor="let aluno of alunos">
+        <td>{{ aluno.nome_completo }}</td>
+        <td>{{ aluno.email }}</td>
+        <td>{{ aluno.data_nascimento | date:'dd/MM/yyyy' }}</td>
+        <td>
+          <button class="btn-action btn-edit">Editar</button>
+          <button class="btn-action btn-delete">Excluir</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
