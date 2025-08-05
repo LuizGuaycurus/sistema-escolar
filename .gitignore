@@ -1,0 +1,27 @@
+# Arquivos de Cache e compilados do Python
+__pycache__/
+*.pyc
+
+# Pasta do Ambiente Virtual do Python
+# NUNCA envie sua venv para o repositório!
+venv/
+
+# Arquivos de banco de dados locais (se usássemos SQLite)
+db.sqlite3
+
+# Arquivos de segredos 
+
+# Pasta de dependências do Node/Angular
+/frontend/sistema-web/node_modules/
+
+# Arquivos de build e cache do Angular
+/frontend/sistema-web/dist/
+/frontend/sistema-web/.angular/
+
+# Logs e relatórios de teste
+/frontend/sistema-web/coverage/
+npm-debug.log
+yarn-error.log
+
+# Arquivos de configuração do editor de código (VS Code)
+.vscode/
