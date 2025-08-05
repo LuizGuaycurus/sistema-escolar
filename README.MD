@@ -43,7 +43,7 @@ Siga os passos abaixo para configurar o ambiente de desenvolvimento local.
 
 ```bash
 # Clone o repositório (substitua pela URL do seu repositório no GitHub)
-git clone [https://github.com/SEU_USUARIO/SEU_REPOSITORIO.git](https://github.com/SEU_USUARIO/SEU_REPOSITORIO.git)
+git clone [https://github.com/LuizGuaycurus/sistema-escolar.git](https://github.com/LuizGuaycurus/sistema-escolar.git)
 cd sistema-escolar
 
 # Crie e ative o ambiente virtual
