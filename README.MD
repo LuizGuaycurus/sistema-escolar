@@ -1,104 +1,91 @@
-Sistema de Gerenciamento Escolar
-1. Sinopse
-Este repositório contém o código-fonte de um Sistema de Gerenciamento Escolar (SGE) desenvolvido como uma aplicação web full-stack. O projeto implementa uma arquitetura de serviços desacoplada, com uma API RESTful no backend e uma Single-Page Application (SPA) no frontend. O objetivo principal é fornecer uma plataforma robusta e escalável para a administração de entidades acadêmicas como alunos, corpo docente e turmas.
+# Sistema Escolar Web
 
-2. Arquitetura da Aplicação
-A arquitetura do sistema é dividida em três componentes principais:
+Um sistema de gerenciamento escolar completo construído com Django e Angular, projetado para administrar alunos, professores, turmas e notas de forma eficiente.
 
-2.1. Backend (API)
-Framework: Django
+##  Tecnologias Utilizadas
 
-Linguagem: Python
+Este projeto foi construído utilizando as seguintes tecnologias:
 
-API: Django REST Framework (DRF) para a construção da API RESTful.
+* **Backend:**
+    * [Python](https://www.python.org/)
+    * [Django](https://www.djangoproject.com/)
+    * [Django REST Framework](https://www.django-rest-framework.org/)
+    * [Simple JWT](https://django-rest-framework-simplejwt.readthedocs.io/en/latest/)
+* **Frontend:**
+    * [Angular](https://angular.io/)
+    * [TypeScript](https://www.typescriptlang.org/)
+* **Banco de Dados:**
+    * [MySQL](https://www.mysql.com/)
+* **Versionamento:**
+    * [Git](https://git-scm.com/) & [GitHub](https://github.com)
 
-Autenticação: O sistema utiliza JSON Web Tokens (JWT) para a autenticação segura de endpoints, implementada através da biblioteca djangorestframework-simplejwt.
+## 🚀 Funcionalidades Atuais
 
-Comunicação Frontend-Backend: A política de Cross-Origin Resource Sharing (CORS) é gerenciada pela biblioteca django-cors-headers para permitir requisições da aplicação frontend.
+* [x] API RESTful segura com Django REST Framework.
+* [x] Autenticação de usuários com Tokens JWT.
+* [x] Interface de Login com Angular e redirecionamento.
+* [ ] Gerenciamento de Alunos (CRUD - Criar, Ler, Atualizar, Deletar).
+* [ ] Gerenciamento de Professores (CRUD).
+* [ ] Gerenciamento de Turmas (CRUD).
 
-2.2. Frontend (Cliente Web)
-Framework: Angular
+## 🔧 Configuração do Ambiente
 
-Linguagem: TypeScript
+Siga os passos abaixo para configurar o ambiente de desenvolvimento local.
 
-Renderização: A aplicação foi configurada para suportar Server-Side Rendering (SSR), visando otimizar o desempenho de carregamento inicial e a indexação por motores de busca (SEO).
+### Pré-requisitos
 
-Comunicação com API: O módulo HttpClient do Angular é utilizado para consumir os endpoints da API RESTful do backend.
+* Python 3.10+
+* Node.js e npm
+* MySQL Server
+* Git
 
-2.3. Banco de Dados
-Sistema de Gerenciamento de Banco de Dados (SGBD): MySQL.
+### 1. Backend (Django)
 
-Driver de Conexão: A integração entre o Django e o MySQL é realizada através do driver mysqlclient.
+```bash
+# Clone o repositório (substitua pela URL do seu repositório no GitHub)
+git clone [https://github.com/SEU_USUARIO/SEU_REPOSITORIO.git](https://github.com/SEU_USUARIO/SEU_REPOSITORIO.git)
+cd sistema-escolar
 
-3. Roadmap de Funcionalidades
-O escopo atual e futuro do projeto inclui as seguintes funcionalidades:
-
-[x] Estrutura da API RESTful com Django REST Framework.
-
-[x] Mecanismo de autenticação de usuários via JSON Web Tokens (JWT).
-
-[x] Interface de autenticação (Login) no frontend Angular.
-
-[ ] Módulo de gerenciamento de Alunos (operações CRUD).
-
-[ ] Módulo de gerenciamento de Professores (operações CRUD).
-
-[ ] Módulo de gerenciamento de Turmas e Matrículas.
-
-4. Guia de Instalação e Configuração
-Para executar este projeto em um ambiente de desenvolvimento local, siga os procedimentos detalhados abaixo.
-
-4.1. Pré-requisitos
-Certifique-se de que os seguintes softwares estão instalados em seu sistema:
-
-Python (versão 3.10 ou superior)
-
-Node.js e o gerenciador de pacotes npm
-
-Servidor de banco de dados MySQL
-
-Git
-
-4.2. Configuração do Backend
-# 1. Clone o repositório para o seu ambiente local
-git clone https://github.com/LuizGuaycurus/sistema-escolar.git
-cd nome-do-repositorio
-
-# 2. Crie e ative um ambiente virtual Python
+# Crie e ative o ambiente virtual
 python -m venv venv
-# No Windows:
-# venv\Scripts\activate
-# No macOS/Linux:
-# source venv/bin/activate
+# No Windows: venv\Scripts\activate
+# No Linux/Mac: source venv/bin/activate
 
-# 3. Instale as dependências do Python a partir do arquivo de requerimentos
+# Navegue até a pasta do backend e instale as dependências
 cd backend
 pip install -r requirements.txt
 
-# 4. Configure a conexão com o banco de dados no arquivo 'core/settings.py'
-# e execute as migrações para criar as tabelas do banco de dados.
-python manage.py migrate
+# Lembre-se de criar o banco de dados no MySQL e
+# configurar suas credenciais no arquivo core/settings.py
 
-4.3. Configuração do Frontend
-# 1. Em um novo terminal, navegue para o diretório do frontend
+# Aplique as migrações no banco de dados
+python manage.py migrate
+```
+
+### 2. Frontend (Angular)
+
+```bash
+# Em um novo terminal, navegue até a pasta do frontend
 cd frontend/sistema-web
 
-# 2. Instale as dependências do Node.js
+# Instale as dependências do Node.js
 npm install
+```
 
-5. Instruções de Execução
-Para iniciar a aplicação, é necessário executar os servidores de backend e frontend simultaneamente.
+## ▶️ Executando o Projeto
 
-Execução do Servidor Backend (Django):
+É necessário ter dois terminais abertos.
 
-# No diretório 'backend', com o ambiente virtual ativado:
-python manage.py runserver
+1.  **Executar o Backend:**
+    ```bash
+    # Na pasta 'backend' (com a venv ativada)
+    python manage.py runserver
+    ```
+    O servidor Django estará rodando em `http://127.0.0.1:8000`.
 
-A API estará acessível em http://127.0.0.1:8000.
-
-Execução do Servidor Frontend (Angular):
-
-# No diretório 'frontend/sistema-web':
-ng serve
-
-A aplicação web estará acessível em http://localhost:4200.
+2.  **Executar o Frontend:**
+    ```bash
+    # Na pasta 'frontend/sistema-web'
+    ng serve
+    ```
+    A aplicação Angular estará disponível em `http://localhost:4200`.
