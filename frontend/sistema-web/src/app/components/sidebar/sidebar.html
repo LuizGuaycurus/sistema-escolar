@@ -1,1 +1,28 @@
-<p>sidebar works!</p>
+<aside 
+  class="bg-gray-800 text-gray-200 flex flex-col transition-all duration-300 ease-in-out"
+  [ngClass]="isCollapsed ? 'w-20' : 'w-64'">
+
+  <!-- header do sidebar -->
+  <div class="flex items-center justify-center h-20 border-b border-gray-700">
+    <svg *ngIf="!isCollapsed" class="w-8 h-8 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v11.494m-9-5.747h18"></path></svg>
+    <span *ngIf="!isCollapsed" class="ml-2 text-2xl font-bold text-white">Escola</span>
+    <svg *ngIf="isCollapsed" class="w-8 h-8 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v11.494m-9-5.747h18"></path></svg>
+  </div>
+
+  <!-- itens de navegação -->
+  <nav class="flex-1 px-2 py-4 space-y-2">
+    <a 
+      *ngFor="let item of menuItems" 
+      [routerLink]="item.path"
+      routerLinkActive="bg-gray-700 text-white"
+      class="flex items-center p-3 rounded-lg hover:bg-gray-700 hover:text-white transition-colors"
+      [class.justify-center]="isCollapsed">
+      
+      <!-- icone menu -->
+      <div [innerHTML]="item.icon | safeHtml"></div>
+      
+      <span *ngIf="!isCollapsed" class="ml-4 font-medium">{{ item.name }}</span>
+    </a>
+  </nav>
+
+</aside>
