@@ -1,11 +1,9 @@
-// frontend/sistema-web/src/app/pages/login/login.ts
-
 import { Component, NgZone } from '@angular/core'; 
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms'; 
 import { AuthService } from '../../services/auth';
 import { Router } from '@angular/router';
-// A linha 'import { response } from 'express';' foi removida.
+
 
 @Component({
   selector: 'app-login',

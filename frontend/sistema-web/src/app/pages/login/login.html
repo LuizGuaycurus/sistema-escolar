@@ -1,18 +1,45 @@
-<div class="login-container">
-  <div class="login-box">
-    <h2>Sistema Escolar</h2>
-    <p>Por favor, faça o login para continuar</p>
-    <form class="login-form" (ngSubmit)="onSubmit()">
-      <div class="form-group">
-        <label for="username">Usuário</label>
-        <input type="text" id="username" name="username" placeholder="Digite seu usuário" [(ngModel)]="credentials.username">
-      </div>
-      <div class="form-group">
-        <label for="password">Senha</label>
-        <input type="password" id="password" name="password" placeholder="Digite sua senha" [(ngModel)]="credentials.password">
-      </div>
-      <button type="submit" class="login-button">Entrar</button>
-    </form>
+<div class="flex items-center justify-center min-h-screen">
+  <div class="w-full max-w-md p-8 space-y-6 bg-gray-800 rounded-xl shadow-lg">
+    <div class="text-center">
+      <h2 class="text-3xl font-bold text-gray-100">
+        Sistema Escolar
+      </h2>
+      <p class="mt-2 text-sm text-gray-400">
+        Por favor, faça o login para continuar
+      </p>
+    </div>
 
+    <form class="space-y-6" (ngSubmit)="onSubmit()">
+      <div>
+        <label for="username" class="text-sm font-medium text-gray-300">Usuário</label>
+        <input 
+          type="text" 
+          id="username" 
+          name="username" 
+          placeholder="Digite seu usuário" 
+          [(ngModel)]="credentials.username"
+          class="mt-1 block w-full px-3 py-2 bg-gray-700 border border-gray-600 rounded-md text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+        >
+      </div>
+
+      <div>
+        <label for="password" class="text-sm font-medium text-gray-300">Senha</label>
+        <input 
+          type="password" 
+          id="password" 
+          name="password" 
+          placeholder="Digite sua senha" 
+          [(ngModel)]="credentials.password"
+          class="mt-1 block w-full px-3 py-2 bg-gray-700 border border-gray-600 rounded-md text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+        >
+      </div>
+
+      <button 
+        type="submit" 
+        class="w-full py-3 px-4 text-white font-bold bg-blue-600 rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-blue-500 transition-colors"
+      >
+        Entrar
+      </button>
+    </form>
   </div>
 </div>

@@ -1,39 +1,43 @@
-<!-- frontend/sistema-web/src/app/pages/dashboard/dashboard.html -->
+<div class="p-4 sm:p-6 md:p-8 max-w-7xl mx-auto">
+  
+  <h1 class="text-3xl font-bold text-white mb-6">Painel de Alunos</h1>
 
-<div class="dashboard-container">
-  <h1>Painel de Alunos</h1>
-
-  <!-- Se estiver carregando, mostra uma mensagem -->
-  <div *ngIf="isLoading" class="loading">
-    Carregando alunos...
+  <!-- Mensagem de Carregamento -->
+  <div *ngIf="isLoading" class="text-center py-10">
+    <p class="text-lg text-gray-400">Carregando alunos...</p>
   </div>
 
-  <!-- Se não estiver carregando e não houver alunos, mostra outra mensagem -->
-  <div *ngIf="!isLoading && alunos.length === 0" class="no-data">
-    Nenhum aluno cadastrado no momento.
+  <!-- Mensagem para quando não há dados -->
+  <div *ngIf="!isLoading && alunos.length === 0" class="text-center bg-gray-800 p-10 rounded-lg">
+    <p class="text-lg text-gray-400">Nenhum aluno cadastrado no momento.</p>
   </div>
 
-  <!-- Se não estiver carregando e houver alunos, mostra a tabela -->
-  <table *ngIf="!isLoading && alunos.length > 0" class="alunos-table">
-    <thead>
-      <tr>
-        <th>Nome Completo</th>
-        <th>Email</th>
-        <th>Data de Nascimento</th>
-        <th>Ações</th>
-      </tr>
-    </thead>
-    <tbody>
-      <!-- O *ngFor repete esta linha para cada aluno na lista -->
-      <tr *ngFor="let aluno of alunos">
-        <td>{{ aluno.nome_completo }}</td>
-        <td>{{ aluno.email }}</td>
-        <td>{{ aluno.data_nascimento | date:'dd/MM/yyyy' }}</td>
-        <td>
-          <button class="btn-action btn-edit">Editar</button>
-          <button class="btn-action btn-delete">Excluir</button>
-        </td>
-      </tr>
-    </tbody>
-  </table>
+  <!-- Tabela de Alunos -->
+  <div *ngIf="!isLoading && alunos.length > 0" class="overflow-x-auto shadow-lg rounded-lg">
+    <table class="min-w-full bg-gray-800">
+      <thead class="bg-gray-700">
+        <tr>
+          <th class="py-3 px-6 text-left text-xs font-medium text-gray-300 uppercase tracking-wider">Nome Completo</th>
+          <th class="py-3 px-6 text-left text-xs font-medium text-gray-300 uppercase tracking-wider">Email</th>
+          <th class="py-3 px-6 text-left text-xs font-medium text-gray-300 uppercase tracking-wider">Data de Nascimento</th>
+          <th class="py-3 px-6 text-left text-xs font-medium text-gray-300 uppercase tracking-wider">Ações</th>
+        </tr>
+      </thead>
+      <tbody class="divide-y divide-gray-700">
+        <tr *ngFor="let aluno of alunos" class="hover:bg-gray-700/50 transition-colors">
+          <td class="py-4 px-6 whitespace-nowrap text-gray-200">{{ aluno.nome_completo }}</td>
+          <td class="py-4 px-6 whitespace-nowrap text-gray-400">{{ aluno.email }}</td>
+          <td class="py-4 px-6 whitespace-nowrap text-gray-400">{{ aluno.data_nascimento | date:'dd/MM/yyyy' }}</td>
+          <td class="py-4 px-6 whitespace-nowrap">
+            <button class="px-4 py-2 text-sm font-medium text-white bg-blue-600 rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-blue-500 transition-colors mr-2">
+              Editar
+            </button>
+            <button class="px-4 py-2 text-sm font-medium text-white bg-red-600 rounded-md hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-red-500 transition-colors">
+              Excluir
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </div>
