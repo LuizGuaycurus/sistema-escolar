@@ -1,27 +1,53 @@
-# Arquivos de Cache e compilados do Python
+# ===============================================
+# Python / Django
+# ===============================================
+
+# Ambiente Virtual
+venv/
+
+# Cache do Python
 __pycache__/
 *.pyc
 
-# Pasta do Ambiente Virtual do Python
-# NUNCA envie sua venv para o repositório!
-venv/
-
-# Arquivos de banco de dados locais (se usássemos SQLite)
+# Banco de dados local do SQLite
 db.sqlite3
 
-# Arquivos de segredos 
 
-# Pasta de dependências do Node/Angular
+.env
+
+# Arquivos estáticos coletados e de mídia do usuário 
+/staticfiles/
+/media/
+
+
+# ===============================================
+# Frontend / Angular
+# ===============================================
+
+# Dependências do Node
 /frontend/sistema-web/node_modules/
 
 # Arquivos de build e cache do Angular
 /frontend/sistema-web/dist/
 /frontend/sistema-web/.angular/
 
-# Logs e relatórios de teste
+# Relatórios de teste
 /frontend/sistema-web/coverage/
+
+# Logs de erro
 npm-debug.log
 yarn-error.log
 
-# Arquivos de configuração do editor de código (VS Code)
+
+# ===============================================
+# IDE / Sistema Operacional
+# ===============================================
+
+# Configurações do VS Code
 .vscode/
+
+# Arquivos do macOS 
+.DS_Store
+
+# Cache de imagens do Windows 
+Thumbs.db

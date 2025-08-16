@@ -24,7 +24,9 @@ Este projeto foi construído utilizando as seguintes tecnologias:
 * [x] API RESTful segura com Django REST Framework.
 * [x] Autenticação de usuários com Tokens JWT.
 * [x] Interface de Login com Angular e redirecionamento.
-* [ ] Gerenciamento de Alunos (CRUD - Criar, Ler, Atualizar, Deletar).
+* [x] Layout principal com menu lateral (sidebar) recolhível e tema escuro.
+* [x] Visualização (Read) da lista de Alunos no dashboard.
+* [ ] Gerenciamento de Alunos (Criar, Atualizar, Deletar).
 * [ ] Gerenciamento de Professores (CRUD).
 * [ ] Gerenciamento de Turmas (CRUD).
 
