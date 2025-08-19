@@ -1,22 +1,27 @@
-import { HttpInterceptorFn } from '@angular/common/http';
-import { inject } from '@angular/core';
+import { Injectable } from '@angular/core';
+import { HttpEvent, HttpHandler, HttpInterceptor, HttpRequest } from '@angular/common/http';
+import { Observable } from 'rxjs';
 import { AuthService } from '../services/auth';
 
-export const authInterceptor: HttpInterceptorFn = (req, next) => {
-  //injeta o authservice pra pegar o token
-  const authService = inject(AuthService);
-  const authToken = authService.getToken();
+@Injectable()
+export class AuthInterceptor implements HttpInterceptor {
 
-  //se um token existir, clona a requisição e adciona o header de autorização
-  if(authToken){
-    const authReq = req.clone({
-      setHeaders: {
-        Authorization: `Bearer ${authToken}`
-      }
-    });
-    // envia a requisição clonada com cabeçalho
-    return next(authReq);
+  constructor(private authService: AuthService) {}
+
+  intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
+    const authToken = this.authService.getToken();
+
+    if (authToken) {
+      // Clona a requisição para adicionar o novo cabeçalho
+      const authReq = request.clone({
+        setHeaders: {
+          Authorization: `Bearer ${authToken}`
+        }
+      });
+      return next.handle(authReq);
+    }
+
+    // Se não houver token, envia a requisição original
+    return next.handle(request);
   }
-  // se não houver token, envia a requisição original
-  return next(req);
-};
+}
